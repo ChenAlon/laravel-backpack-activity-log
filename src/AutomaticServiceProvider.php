@@ -129,6 +129,13 @@ trait AutomaticServiceProvider
             ], 'lang');
         }
 
+        // Publishing the routes file.
+        if ($this->packageDirectoryExistsAndIsNotEmpty('routes')) {
+            $this->publishes([
+                $this->packageRoutesFile() => $this->publishedRoutesFile(),
+            ], 'routes');
+        }
+
         // Registering package commands.
         if (! empty($this->commands)) {
             $this->commands($this->commands);
@@ -212,6 +219,11 @@ trait AutomaticServiceProvider
     protected function publishedLangsPath()
     {
         return resource_path('lang/vendor/'.$this->vendorName);
+    }
+
+    protected function publishedRoutesFile()
+    {
+        return base_path('routes/'.$this->vendorName.'/'.$this->packageName.'php');
     }
 
     // -------------
