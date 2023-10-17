@@ -74,11 +74,11 @@ trait AutomaticServiceProvider
 
         if ($this->packageDirectoryExistsAndIsNotEmpty('routes')) {
             // by default, use the routes file provided in vendor
-            $routeFilePathInUse = $this->packageRoutesFile()
+            $routeFilePathInUse = $this->packageRoutesFile();
 
             // but if there's a file with the same name in routes/backpack, use that one
             if (file_exists($this->publishedRoutesFile())) {
-                $routeFilePathInUse = $this->publishedRoutesFile()
+                $routeFilePathInUse = $this->publishedRoutesFile();
             }
 
             $this->loadRoutesFrom($routeFilePathInUse);
