@@ -73,7 +73,15 @@ trait AutomaticServiceProvider
         }
 
         if ($this->packageDirectoryExistsAndIsNotEmpty('routes')) {
-            $this->loadRoutesFrom($this->packageRoutesFile());
+            // by default, use the routes file provided in vendor
+            $routeFilePathInUse = $this->packageRoutesFile()
+
+            // but if there's a file with the same name in routes/backpack, use that one
+            if (file_exists($this->publishedRoutesFile())) {
+                $routeFilePathInUse = $this->publishedRoutesFile()
+            }
+
+            $this->loadRoutesFrom($routeFilePathInUse);
         }
 
         // Publishing is only necessary when using the CLI.
