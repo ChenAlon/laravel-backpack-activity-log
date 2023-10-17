@@ -28,7 +28,7 @@ In your Laravel + Backpack project, install this package:
 
 ```bash
 # install this interface package:
-composer require backpack/activity-log
+composer require chenalon/laravel-backlog-activity-log
 
 # add a menu item for it
 php artisan backpack:add-menu-content "<x-backpack::menu-item title=\"Activity Logs\" icon=\"la la-stream\" :link=\"backpack_url('activity-log')\" />"
