@@ -112,7 +112,7 @@ class ActivityLogCrudController extends CrudController
         ]);
 
         // Filters
-        $this->setupFilters();
+        // $this->setupFilters();
     }
 
     protected function setupShowOperation()
