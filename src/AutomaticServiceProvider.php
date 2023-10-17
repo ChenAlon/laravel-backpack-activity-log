@@ -223,7 +223,7 @@ trait AutomaticServiceProvider
 
     protected function publishedRoutesFile()
     {
-        return base_path('routes/'.$this->vendorName.'/'.$this->packageName.'php');
+        return base_path('routes/'.$this->vendorName.'/'.$this->packageName.'.php');
     }
 
     // -------------
